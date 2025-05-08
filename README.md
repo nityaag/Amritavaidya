@@ -148,3 +148,42 @@ cd amritavaidya
 | BILLING          | Billing info for consultations  |
 | LOGIN_DETAILS    | Username, password, role        |
 
+USER INTERFACE
+![Screenshot (159)](https://github.com/user-attachments/assets/7371daa5-5bd6-40f0-9f56-3379aa4f2eae)
+
+![image](https://github.com/user-attachments/assets/cbe407df-a3df-4685-99a4-c40441fbf9fe)
+![image](https://github.com/user-attachments/assets/90ece63c-e352-4fe0-818d-002e3b4a7492)
+![image](https://github.com/user-attachments/assets/1b6ab7fb-57cf-4fff-99c8-e0589b76d41e)
+This is the main page of the website showing the major functions available to both doctor and patient, but with different working functions. In a session, while a doctor can see his appointments, a patient can book an appointment with his doctor. Medical archives show medical records of patients to both the doctor and the patient, with extra functionality of editing for the doctor. FaceTime provides video call functionality between the doctor and the patient. 
+
+REGISTRATION AND LOGIN:
+
+![image](https://github.com/user-attachments/assets/88e2740f-0214-4cc3-9723-1d639cfda8ec)
+![image](https://github.com/user-attachments/assets/e073106e-7571-4159-b631-5ed1c03508d4)
+
+![image](https://github.com/user-attachments/assets/9d7ad7af-4603-4740-97ef-f24bab750d7a)
+
+![image](https://github.com/user-attachments/assets/0730bc2e-37d6-41a9-bdae-a3348efe4554)
+
+
+DOCTOR:
+
+![image](https://github.com/user-attachments/assets/acb79f18-e328-4df5-accc-a2ffdc8257cd)
+
+![image](https://github.com/user-attachments/assets/0c6c157d-0dd9-4d74-a565-1381525642fc)
+![image](https://github.com/user-attachments/assets/3266f2ab-16fd-4c48-ab34-43168581eac6)
+
+
+PATIENT:
+
+![image](https://github.com/user-attachments/assets/950c3d29-8cf1-43f7-be7a-19b7c91b881b)
+
+![image](https://github.com/user-attachments/assets/ca4b0bb3-844a-49eb-97ba-6968aa95cecf)
+
+![image](https://github.com/user-attachments/assets/4415f2a4-f3b9-4ce3-bfe2-1c96b8249720)
+![image](https://github.com/user-attachments/assets/d661b03d-93ed-4aae-ba4b-778316c53b6c)
+
+![image](https://github.com/user-attachments/assets/090bf784-09f0-40e5-8ece-f1a05caee2cd)
+
+
+
