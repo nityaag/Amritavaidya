@@ -1,0 +1,270 @@
+package org.apache.jsp.WEB_002dINF;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class faq_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html lang=\"en\">\n");
+      out.write("<head>\n");
+      out.write("    <meta charset=\"UTF-8\">\n");
+      out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+      out.write("    <title>FAQs - Doctor-Patient Interaction</title>\n");
+      out.write("    <style>\n");
+      out.write("        body {\n");
+      out.write("            font-family: 'Arial', sans-serif;\n");
+      out.write("            background: linear-gradient(135deg, #FFFDD0, #FFFDD0);\n");
+      out.write("            color: #333;\n");
+      out.write("            margin: 0;\n");
+      out.write("            padding: 0;\n");
+      out.write("            display: flex;\n");
+      out.write("            justify-content: center;\n");
+      out.write("            align-items: center;\n");
+      out.write("            min-height: 100vh;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-container {\n");
+      out.write("            width: 180%;\n");
+      out.write("            max-width: 1300px;\n");
+      out.write("            background: #ffffff;\n");
+      out.write("            color: #333;\n");
+      out.write("            border-radius: 15px;\n");
+      out.write("            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);\n");
+      out.write("            overflow: hidden;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-header {\n");
+      out.write("            background: linear-gradient(135deg, #84fab0, #8fd3f4);\n");
+      out.write("            padding: 20px;\n");
+      out.write("            text-align: center;\n");
+      out.write("            color: #ffffff;\n");
+      out.write("            border-bottom: 2px solid #e0e0e0;\n");
+      out.write("            position: relative;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-header img {\n");
+      out.write("            position: absolute;\n");
+      out.write("            top: 10px;\n");
+      out.write("            left: 10px;\n");
+      out.write("            height: 50px;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-header h1 {\n");
+      out.write("            margin: 0;\n");
+      out.write("            font-size: 2.2rem;\n");
+      out.write("            letter-spacing: 1px;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-content {\n");
+      out.write("            padding: 20px;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-item {\n");
+      out.write("            border-bottom: 1px solid #f0f0f0;\n");
+      out.write("            padding: 15px 0;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-item:last-child {\n");
+      out.write("            border-bottom: none;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-question {\n");
+      out.write("            display: flex;\n");
+      out.write("            justify-content: space-between;\n");
+      out.write("            align-items: center;\n");
+      out.write("            cursor: pointer;\n");
+      out.write("            font-size: 1.2rem;\n");
+      out.write("            font-weight: bold;\n");
+      out.write("            color: #444;\n");
+      out.write("            transition: color 0.3s ease;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-question:hover {\n");
+      out.write("            color: #84fab0;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-question i {\n");
+      out.write("            transition: transform 0.3s ease;\n");
+      out.write("            color: #84fab0;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-answer {\n");
+      out.write("            margin-top: 10px;\n");
+      out.write("            font-size: 1rem;\n");
+      out.write("            line-height: 1.8;\n");
+      out.write("            display: none;\n");
+      out.write("            color: #555;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-answer.active {\n");
+      out.write("            display: block;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .faq-question i.rotate {\n");
+      out.write("            transform: rotate(180deg);\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        @media (max-width: 480px) {\n");
+      out.write("            .faq-container {\n");
+      out.write("                width: 100%;\n");
+      out.write("                border-radius: 0;\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("            .faq-header h1 {\n");
+      out.write("                font-size: 1.8rem;\n");
+      out.write("            }\n");
+      out.write("        }\n");
+      out.write("    </style>\n");
+      out.write("</head>\n");
+      out.write("<body>\n");
+      out.write("    <div class=\"faq-container\">\n");
+      out.write("        <div class=\"faq-header\">\n");
+      out.write("            <img src=\"images/LOGO.png\" alt=\"AmritaVaidya Logo\">\n");
+      out.write("            <h1>FAQs - Doctor-Patient Interaction</h1>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"faq-content\">\n");
+      out.write("            <div class=\"faq-item\">\n");
+      out.write("                <div class=\"faq-question\">\n");
+      out.write("                    <span>How do I book an appointment with a doctor?</span>\n");
+      out.write("                    <i>&#9660;</i>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"faq-answer\">\n");
+      out.write("                    Booking an appointment is easy. Simply visit our website or app, select your preferred doctor, and choose a time slot. You will receive a confirmation once your appointment is booked successfully.\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"faq-item\">\n");
+      out.write("                <div class=\"faq-question\">\n");
+      out.write("                    <span>Can I consult with a doctor online?</span>\n");
+      out.write("                    <i>&#9660;</i>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"faq-answer\">\n");
+      out.write("                    Yes, you can consult with doctors online via video consultations. Our platform allows you to connect with healthcare professionals for non-urgent issues, anytime and anywhere.\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"faq-item\">\n");
+      out.write("                <div class=\"faq-question\">\n");
+      out.write("                    <span>How can I cancel or reschedule an appointment?</span>\n");
+      out.write("                    <i>&#9660;</i>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"faq-answer\">\n");
+      out.write("                    To cancel or reschedule, log into your account, go to the \"My Appointments\" section, and select the desired appointment. Make sure to do so at least 24 hours in advance to avoid cancellation fees.\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"faq-item\">\n");
+      out.write("                <div class=\"faq-question\">\n");
+      out.write("                    <span>Is my personal information secure on this platform?</span>\n");
+      out.write("                    <i>&#9660;</i>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"faq-answer\">\n");
+      out.write("                    Your privacy is our top priority. We use advanced encryption technologies to ensure that your personal and medical data remains confidential and secure at all times.\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"faq-item\">\n");
+      out.write("                <div class=\"faq-question\">\n");
+      out.write("                    <span>What should I do in case of a medical emergency?</span>\n");
+      out.write("                    <i>&#9660;</i>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"faq-answer\">\n");
+      out.write("                    For medical emergencies, please call your local emergency services or visit the nearest hospital immediately. Our platform is designed for non-emergency consultations only.\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"faq-item\">\n");
+      out.write("                <div class=\"faq-question\">\n");
+      out.write("                    <span>What types of doctors are available on this platform?</span>\n");
+      out.write("                    <i>&#9660;</i>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"faq-answer\">\n");
+      out.write("                    Our platform hosts a variety of specialists, including general physicians, dermatologists, pediatricians, cardiologists, and more. You can choose a doctor based on your specific health needs.\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"faq-item\">\n");
+      out.write("                <div class=\"faq-question\">\n");
+      out.write("                    <span>Can I get a prescription after my consultation?</span>\n");
+      out.write("                    <i>&#9660;</i>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"faq-answer\">\n");
+      out.write("                    Yes, after your consultation, the doctor can provide a digital prescription that will be accessible through your account. You can download or print it for your records.\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("    </div>\n");
+      out.write("\n");
+      out.write("    <script>\n");
+      out.write("        const faqQuestions = document.querySelectorAll('.faq-question');\n");
+      out.write("\n");
+      out.write("        faqQuestions.forEach(question => {\n");
+      out.write("            question.addEventListener('click', () => {\n");
+      out.write("                const answer = question.nextElementSibling;\n");
+      out.write("                const icon = question.querySelector('i');\n");
+      out.write("\n");
+      out.write("                if (answer.classList.contains('active')) {\n");
+      out.write("                    answer.classList.remove('active');\n");
+      out.write("                    icon.classList.remove('rotate');\n");
+      out.write("                } else {\n");
+      out.write("                 \n");
+      out.write("                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));\n");
+      out.write("                    document.querySelectorAll('.faq-question i').forEach(i => i.classList.remove('rotate'));\n");
+      out.write("\n");
+      out.write("                   \n");
+      out.write("                    answer.classList.add('active');\n");
+      out.write("                    icon.classList.add('rotate');\n");
+      out.write("                }\n");
+      out.write("            });\n");
+      out.write("        });\n");
+      out.write("    </script>\n");
+      out.write("</body>\n");
+      out.write("</html>");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}

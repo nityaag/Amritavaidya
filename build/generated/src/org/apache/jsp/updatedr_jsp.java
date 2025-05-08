@@ -1,0 +1,511 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+import java.sql.*;
+
+public final class updatedr_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html; charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+
+    String doctorUsername = request.getParameter("username");
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    String message = "";
+   
+    String name = "", gender = "", qualification = "", dob = "", specialty = "", bloodGroup = "", contact = "";
+   
+    if (doctorUsername != null) {
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Amritavaidya", "av", "av");
+           
+            String sql = "SELECT * FROM DOCTOR WHERE USERNAME = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, doctorUsername);
+            rs = pstmt.executeQuery();
+           
+            if (rs.next()) {
+                name = rs.getString("NAME");
+                gender = rs.getString("GENDER");
+                qualification = rs.getString("QUALIFICATION");
+                dob = rs.getString("DOB");
+                specialty = rs.getString("SPECIALTY");
+                bloodGroup = rs.getString("BLOODGROUP");
+                contact = rs.getString("CONTACT");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+   
+    if (request.getMethod().equalsIgnoreCase("POST")) {
+        qualification = request.getParameter("qualification");
+        specialty = request.getParameter("specialty");
+        bloodGroup = request.getParameter("bloodGroup");
+        contact = request.getParameter("contact");
+       
+        try {
+            String updateSql = "UPDATE DOCTOR SET QUALIFICATION=?, SPECIALTY=?, BLOODGROUP=?, CONTACT=? WHERE USERNAME=?";
+            pstmt = conn.prepareStatement(updateSql);
+            pstmt.setString(1, qualification);
+            pstmt.setString(2, specialty);
+            pstmt.setString(3, bloodGroup);
+            pstmt.setString(4, contact);
+            pstmt.setString(5, doctorUsername);
+           
+            int rowsUpdated = pstmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                message = "Doctor details updated successfully.";
+                response.sendRedirect("drlist.jsp");
+            } else {
+                message = "Update failed. Please try again.";
+            }
+        } catch (Exception e) {
+            message = "Error: " + e.getMessage();
+            e.printStackTrace();
+        }
+    }
+
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("<head>\n");
+      out.write("    <title>Update Doctor</title>\n");
+      out.write("    <style>\n");
+      out.write("       body {\n");
+      out.write("            font-family: Arial, sans-serif;\n");
+      out.write("            margin: 0;\n");
+      out.write("            padding: 0;\n");
+      out.write("            background: #f4f4f4;\n");
+      out.write("            display: flex;\n");
+      out.write("            flex-direction: column;\n");
+      out.write("            align-items: center;\n");
+      out.write("            height: 100vh;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Header */\n");
+      out.write("        .header {\n");
+      out.write("           background: linear-gradient(45deg, #b2dfdb, #e1f5fe, #dcedc1);\n");
+      out.write("            padding: 15px;\n");
+      out.write("            display: flex;\n");
+      out.write("            justify-content: space-between;\n");
+      out.write("            align-items: center;\n");
+      out.write("            width: 100%;\n");
+      out.write("            position: fixed;\n");
+      out.write("            top: 0;\n");
+      out.write("            left: 0;\n");
+      out.write("            height: 80px;\n");
+      out.write("            z-index: 1000;\n");
+      out.write("           \n");
+      out.write("            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Logo */\n");
+      out.write("        .header img {\n");
+      out.write("            height: 60px;\n");
+      out.write("            width: 60px;\n");
+      out.write("            margin-left: 20px;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Navigation Menu */\n");
+      out.write("         .menu {\n");
+      out.write("            display: flex;\n");
+      out.write("            gap: 30px;\n");
+      out.write("            position:center;\n");
+      out.write("            background-color: white;\n");
+      out.write("             padding: 15px 25px;\n");
+      out.write("            border-radius: 20px;\n");
+      out.write("            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);\n");
+      out.write("            margin-left: -50px;\n");
+      out.write("            font-weight: bold;\n");
+      out.write("           \n");
+      out.write("        }\n");
+      out.write("       \n");
+      out.write("        .menu a {\n");
+      out.write("            text-decoration:none;\n");
+      out.write("            color: black;\n");
+      out.write("            font-weight: bold;\n");
+      out.write("            position: relative;\n");
+      out.write("             font-size: 20px;\n");
+      out.write("        }\n");
+      out.write("        .menu-item {\n");
+      out.write("            position: relative;\n");
+      out.write("           font-size: 20px;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        .dropdown {\n");
+      out.write("            position: absolute;\n");
+      out.write("            top: 100%;\n");
+      out.write("            left: 0;\n");
+      out.write("            display: none;\n");
+      out.write("            background: #4db6ac;\n");
+      out.write("            border: 1px solid #ddd;\n");
+      out.write("            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);\n");
+      out.write("            border-radius: 5px;\n");
+      out.write("            z-index: 1000;\n");
+      out.write("            min-width: 200px;\n");
+      out.write("            transform: translateY(10px);\n");
+      out.write("            transition: opacity 0.3s ease, transform 0.3s ease;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .dropdown a {\n");
+      out.write("            display: block;\n");
+      out.write("            padding: 12px;\n");
+      out.write("            text-decoration: none;\n");
+      out.write("            color: #333;\n");
+      out.write("            background: white;\n");
+      out.write("            border-radius: 5px;\n");
+      out.write("            margin: 5px;\n");
+      out.write("            transition: background 0.3s ease, transform 0.2s ease;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .dropdown a:hover {\n");
+      out.write("            background-color: #b2dfdb;\n");
+      out.write("            transform: scale(1.05);\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        .menu-item:hover .dropdown {\n");
+      out.write("            display: block;\n");
+      out.write("            opacity: 1;\n");
+      out.write("            transform: translateY(0);\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Centered Container */\n");
+      out.write("        .container {\n");
+      out.write("            background: white;\n");
+      out.write("            padding: 30px;\n");
+      out.write("            border-radius: 12px;\n");
+      out.write("            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);\n");
+      out.write("            width: 50%;\n");
+      out.write("            max-width: 1000px;\n");
+      out.write("            text-align: center;\n");
+      out.write("            margin-top: 120px; /* Push container below fixed header */\n");
+      out.write("            animation: fadeIn 0.8s ease-in-out;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Fade-in Animation */\n");
+      out.write("        @keyframes fadeIn {\n");
+      out.write("            from { opacity: 0; transform: translateY(-10px); }\n");
+      out.write("            to { opacity: 1; transform: translateY(0); }\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Form Title */\n");
+      out.write("        h2 {\n");
+      out.write("            font-size: 30px;\n");
+      out.write("            color: #26547c;\n");
+      out.write("            text-transform: uppercase;\n");
+      out.write("            margin-bottom: 15px;\n");
+      out.write("            position: relative;\n");
+      out.write("            display: inline-block;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Underline Effect */\n");
+      out.write("        h2::after {\n");
+      out.write("            content: \"\";\n");
+      out.write("            width: 50%;\n");
+      out.write("            height: 4px;\n");
+      out.write("            background: #06d6a0;\n");
+      out.write("            position: absolute;\n");
+      out.write("            bottom: -5px;\n");
+      out.write("            left: 50%;\n");
+      out.write("            transform: translateX(-50%);\n");
+      out.write("            border-radius: 2px;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Label Styling */\n");
+      out.write("        label {\n");
+      out.write("            font-weight: bold;\n");
+      out.write("            display: block;\n");
+      out.write("            text-align: left;\n");
+      out.write("            margin-top: 10px;\n");
+      out.write("            color: #26547c;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Input Fields */\n");
+      out.write("        input, select {\n");
+      out.write("            width: 100%;\n");
+      out.write("            padding: 10px;\n");
+      out.write("            margin: 8px 0;\n");
+      out.write("            border: 2px solid #ccc;\n");
+      out.write("            border-radius: 8px;\n");
+      out.write("            font-size: 16px;\n");
+      out.write("            transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Input Focus Effect */\n");
+      out.write("        input:focus, select:focus {\n");
+      out.write("            border-color: #06d6a0;\n");
+      out.write("            outline: none;\n");
+      out.write("            box-shadow: 0 0 10px rgba(6, 214, 160, 0.3);\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Submit Button */\n");
+      out.write("        .btn {\n");
+      out.write("            width: 100%;\n");
+      out.write("            padding: 12px;\n");
+      out.write("           background: #04b78b;\n");
+      out.write("            color: white;\n");
+      out.write("            border: none;\n");
+      out.write("            border-radius: 8px;\n");
+      out.write("            cursor: pointer;\n");
+      out.write("            font-size: 18px;\n");
+      out.write("            text-transform: uppercase;\n");
+      out.write("            font-weight: bold;\n");
+      out.write("            transition: background 0.3s ease, transform 0.2s ease;\n");
+      out.write("            margin-top: 15px;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Button Hover Effect */\n");
+      out.write("        .btn:hover {\n");
+      out.write("            background: #04b78b;\n");
+      out.write("            transform: scale(1.05);\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        /* Responsive Design */\n");
+      out.write("        @media (max-width: 768px) {\n");
+      out.write("            .container {\n");
+      out.write("                width: 80%;\n");
+      out.write("                max-width: 400px;\n");
+      out.write("                padding: 20px;\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("            h2 {\n");
+      out.write("                font-size: 22px;\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("            input, select {\n");
+      out.write("                font-size: 14px;\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("            .btn {\n");
+      out.write("                font-size: 16px;\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("            .menu {\n");
+      out.write("                gap: 15px;\n");
+      out.write("                padding: 10px 15px;\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("            .header img {\n");
+      out.write("                height: 50px;\n");
+      out.write("                width: 50px;\n");
+      out.write("            }\n");
+      out.write("        }\n");
+      out.write("        .footer {\n");
+      out.write("    position: relative;\n");
+      out.write("    background: linear-gradient(to right, #b2fefa, #0ed2f7);\n");
+      out.write("    padding: 30px 20px;\n");
+      out.write("    text-align: center;\n");
+      out.write("    color: white;\n");
+      out.write("    font-size: 20px;\n");
+      out.write("    font-weight: bold;\n");
+      out.write("    margin-top: 50px;\n");
+      out.write("    width: 100%;  /* Full width cover karega */\n");
+      out.write("    left: 0;  /* Ensure left se start ho */\n");
+      out.write("    right: 0; /* Ensure right tak jaye */\n");
+      out.write("}\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("   \n");
+      out.write("    </style>\n");
+      out.write("</head>\n");
+      out.write("<body>\n");
+      out.write("    <div class=\"header\">\n");
+      out.write("        <img src=\"images/LOGO.png\" alt=\"AmritaVaidya Logo\">\n");
+      out.write("        <div class=\"menu\">\n");
+      out.write("            <div class=\"menu-item\">\n");
+      out.write("                <a href=\"#\">Login</a>\n");
+      out.write("                <div class=\"dropdown\">\n");
+      out.write("                    <a href=\"login1.jsp\">Are you a Patient?</a>\n");
+      out.write("                    <a href=\"login1.jsp\">Are you a Doctor?</a>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <a href=\"started.jsp\">Home</a>\n");
+      out.write("            <a href=\"#about\">About Us</a>\n");
+      out.write("            <a href=\"faq.jsp\">FAQs</a>\n");
+      out.write("            <a href=\"contact.html\">Contact Us</a>\n");
+      out.write("           \n");
+      out.write("            <div class=\"menu-item\">\n");
+      out.write("                <a href=\"#\">Profile</a>\n");
+      out.write("                <div class=\"dropdown\">\n");
+      out.write("                    <a href=\"profile.jsp\">My Profile</a>\n");
+      out.write("                   \n");
+      out.write("                    <a href=\"logout.jsp\">Sign Out</a>\n");
+      out.write("                   \n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            </div>\n");
+      out.write("         </div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("    <div class=\"container\">\n");
+      out.write("        <h2>Update Doctor Details</h2>\n");
+      out.write("        <form method=\"post\">\n");
+      out.write("            <label>Name:</label>\n");
+      out.write("            <input type=\"text\" name=\"name\" value=\"");
+      out.print( name );
+      out.write("\" disabled>\n");
+      out.write("           \n");
+      out.write("            <label>Gender:</label>\n");
+      out.write("            <input type=\"text\" name=\"gender\" value=\"");
+      out.print( gender );
+      out.write("\" disabled>\n");
+      out.write("           \n");
+      out.write("            <label>Date of Birth:</label>\n");
+      out.write("            <input type=\"date\" name=\"dob\" value=\"");
+      out.print( dob );
+      out.write("\" disabled />\n");
+      out.write("           \n");
+      out.write("            <label>Qualification:</label>\n");
+      out.write("            <select name=\"qualification\">\n");
+      out.write("                <option value=\"\">Select Qualification</option>\n");
+      out.write("                <option value=\"MBBS\" ");
+      out.print( qualification.equals("MBBS") ? "selected" : "" );
+      out.write(">MBBS</option>\n");
+      out.write("                <option value=\"BAMS\" ");
+      out.print( qualification.equals("BAMS") ? "selected" : "" );
+      out.write(">BAMS</option>\n");
+      out.write("                <option value=\"BHMS\" ");
+      out.print( qualification.equals("BHMS") ? "selected" : "" );
+      out.write(">BHMS</option>\n");
+      out.write("                <option value=\"BUMS\" ");
+      out.print( qualification.equals("BUMS") ? "selected" : "" );
+      out.write(">BUMS</option>\n");
+      out.write("                <option value=\"BNYS\" ");
+      out.print( qualification.equals("BNYS") ? "selected" : "" );
+      out.write(">BNYS</option>\n");
+      out.write("                <option value=\"MD\" ");
+      out.print( qualification.equals("MD") ? "selected" : "" );
+      out.write(">MD</option>\n");
+      out.write("                <option value=\"MS\" ");
+      out.print( qualification.equals("MS") ? "selected" : "" );
+      out.write(">MS</option>\n");
+      out.write("                <option value=\"DNB\" ");
+      out.print( qualification.equals("DNB") ? "selected" : "" );
+      out.write(">DNB</option>\n");
+      out.write("            </select>\n");
+      out.write("           \n");
+      out.write("            <label>Specialty:</label>\n");
+      out.write("            <select name=\"specialty\">\n");
+      out.write("                <option value=\"\">Select Specialty</option>\n");
+      out.write("                <option value=\"MD (General Medicine)\" ");
+      out.print( specialty.equals("MD (General Medicine)") ? "selected" : "" );
+      out.write(">MD (General Medicine)</option>\n");
+      out.write("                <option value=\"MS (General Surgery)\" ");
+      out.print( specialty.equals("MS (General Surgery)") ? "selected" : "" );
+      out.write(">MS (General Surgery)</option>\n");
+      out.write("                <option value=\"MD (Pediatrics)\" ");
+      out.print( specialty.equals("MD (Pediatrics)") ? "selected" : "" );
+      out.write(">MD (Pediatrics)</option>\n");
+      out.write("                <option value=\"MD (Gynecology)\" ");
+      out.print( specialty.equals("MD (Gynecology)") ? "selected" : "" );
+      out.write(">MD (Gynecology)</option>\n");
+      out.write("                <option value=\"MD (Dermatology)\" ");
+      out.print( specialty.equals("MD (Dermatology)") ? "selected" : "" );
+      out.write(">MD (Dermatology)</option>\n");
+      out.write("            </select>\n");
+      out.write("           \n");
+      out.write("            <label>Blood Group:</label>\n");
+      out.write("            <select name=\"bloodGroup\">\n");
+      out.write("                <option value=\"\">Select Blood Group</option>\n");
+      out.write("                <option value=\"A+\" ");
+      out.print( bloodGroup.equals("A+") ? "selected" : "" );
+      out.write(">A+</option>\n");
+      out.write("                <option value=\"A-\" ");
+      out.print( bloodGroup.equals("A-") ? "selected" : "" );
+      out.write(">A-</option>\n");
+      out.write("                <option value=\"B+\" ");
+      out.print( bloodGroup.equals("B+") ? "selected" : "" );
+      out.write(">B+</option>\n");
+      out.write("                <option value=\"B-\" ");
+      out.print( bloodGroup.equals("B-") ? "selected" : "" );
+      out.write(">B-</option>\n");
+      out.write("                <option value=\"AB+\" ");
+      out.print( bloodGroup.equals("AB+") ? "selected" : "" );
+      out.write(">AB+</option>\n");
+      out.write("                <option value=\"AB-\" ");
+      out.print( bloodGroup.equals("AB-") ? "selected" : "" );
+      out.write(">AB-</option>\n");
+      out.write("                <option value=\"O+\" ");
+      out.print( bloodGroup.equals("O+") ? "selected" : "" );
+      out.write(">O+</option>\n");
+      out.write("                <option value=\"O-\" ");
+      out.print( bloodGroup.equals("O-") ? "selected" : "" );
+      out.write(">O-</option>\n");
+      out.write("            </select>\n");
+      out.write("           \n");
+      out.write("            <label>Contact:</label>\n");
+      out.write("            <input type=\"text\" name=\"contact\" value=\"");
+      out.print( contact );
+      out.write("\">\n");
+      out.write("           \n");
+      out.write("            <input type=\"submit\" value=\"Update\" class=\"btn\">\n");
+      out.write("        </form>\n");
+      out.write("        <p>");
+      out.print( message );
+      out.write("</p>\n");
+      out.write("        <a href=\"drlist.jsp\">Back to Doctor List</a>\n");
+      out.write("       \n");
+      out.write("    </div>\n");
+      out.write("        <footer class=\"footer\">\n");
+      out.write("       \n");
+      out.write("    <p>© 2025 Amritavaidya. All Rights Reserved.</p>\n");
+      out.write("</footer>\n");
+      out.write("\n");
+      out.write("</body>\n");
+      out.write("</html>");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}

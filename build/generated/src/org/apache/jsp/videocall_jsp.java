@@ -1,0 +1,278 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class videocall_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html lang=\"en\">\n");
+      out.write("<head>\n");
+      out.write("  <meta charset=\"UTF-8\">\n");
+      out.write("  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+      out.write("  <title>AmritaVaidya - Video Call</title>\n");
+      out.write("  <style>\n");
+      out.write("     \n");
+      out.write("      * {\n");
+      out.write("        margin: 0;\n");
+      out.write("        padding: 0;\n");
+      out.write("        box-sizing: border-box;\n");
+      out.write("      }\n");
+      out.write("      body {\n");
+      out.write("        font-family: 'Arial', sans-serif;\n");
+      out.write("        display: flex;\n");
+      out.write("        flex-direction: column;\n");
+      out.write("        align-items: center;\n");
+      out.write("        justify-content: center;\n");
+      out.write("        height: 100vh;\n");
+      out.write("        background: linear-gradient(135deg, #B2FFFF, #0CAFFF);\n");
+      out.write("        color: #fff;\n");
+      out.write("        overflow: hidden;\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      .header {\n");
+      out.write("        background-color: #ffffff;\n");
+      out.write("        padding: 20px;\n");
+      out.write("        display: flex;\n");
+      out.write("        justify-content: space-between;\n");
+      out.write("        align-items: center;\n");
+      out.write("        width: 100%;\n");
+      out.write("        position: absolute;\n");
+      out.write("        top: 0;\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      .header img {\n");
+      out.write("        height: 100px;\n");
+      out.write("        width: 80px;\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      .menu {\n");
+      out.write("        display: flex;\n");
+      out.write("        gap: 20px;\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      .menu a {\n");
+      out.write("        text-decoration: none;\n");
+      out.write("        color: blue;\n");
+      out.write("        font-weight: bold;\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      .video-container {\n");
+      out.write("        display: flex;\n");
+      out.write("        justify-content: space-between;\n");
+      out.write("        width: 85%;\n");
+      out.write("        max-width: 1200px;\n");
+      out.write("        height: 70vh;\n");
+      out.write("        border-radius: 15px;\n");
+      out.write("        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);\n");
+      out.write("        background-color: #222;\n");
+      out.write("        padding: 10px;\n");
+      out.write("        position: relative;\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      video {\n");
+      out.write("        width: 48%;\n");
+      out.write("        height: 100%;\n");
+      out.write("        border-radius: 10px;\n");
+      out.write("        object-fit: cover;\n");
+      out.write("        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      .controls {\n");
+      out.write("        position: absolute;\n");
+      out.write("        bottom: 10px;\n");
+      out.write("        left: 50%;\n");
+      out.write("        transform: translateX(-50%);\n");
+      out.write("        display: flex;\n");
+      out.write("        gap: 20px;\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      button {\n");
+      out.write("        padding: 15px 30px;\n");
+      out.write("        font-size: 18px;\n");
+      out.write("        font-weight: bold;\n");
+      out.write("        color: #fff;\n");
+      out.write("        background-color: #28a745;\n");
+      out.write("        border: none;\n");
+      out.write("        border-radius: 8px;\n");
+      out.write("        cursor: pointer;\n");
+      out.write("        transition: all 0.3s ease;\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      button:hover {\n");
+      out.write("        background-color: #218838;\n");
+      out.write("        transform: scale(1.1);\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      button:active {\n");
+      out.write("        background-color: #1e7e34;\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      @media (max-width: 768px) {\n");
+      out.write("        .video-container {\n");
+      out.write("          flex-direction: column;\n");
+      out.write("          height: auto;\n");
+      out.write("          padding: 15px;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        video {\n");
+      out.write("          width: 100%;\n");
+      out.write("          margin-bottom: 10px;\n");
+      out.write("        }\n");
+      out.write("      }\n");
+      out.write("\n");
+      out.write("      .controls button {\n");
+      out.write("        font-size: 14px;\n");
+      out.write("        padding: 12px 24px;\n");
+      out.write("      }\n");
+      out.write("  </style>\n");
+      out.write("</head>\n");
+      out.write("<body>\n");
+      out.write(" \n");
+      out.write("  <div class=\"header\">\n");
+      out.write("    <img src=\"images/LOGO.png\" alt=\"AmritaVaidya Logo\">\n");
+      out.write("    <div class=\"menu\">\n");
+      out.write("      <a href=\"home1.jsp\">Login</a>\n");
+      out.write("      <a href=\"about.jsp\">About Us</a>\n");
+      out.write("    </div>\n");
+      out.write("  </div>\n");
+      out.write("\n");
+      out.write(" \n");
+      out.write("  <div class=\"video-container\">\n");
+      out.write("    <video id=\"localVideo\" autoplay muted></video>\n");
+      out.write("    <video id=\"remoteVideo\" autoplay></video>\n");
+      out.write("  </div>\n");
+      out.write("\n");
+      out.write("  <div class=\"controls\">\n");
+      out.write("    <button id=\"startCall\">Start Call</button>\n");
+      out.write("    <button id=\"endCall\">End Call</button>\n");
+      out.write("  </div>\n");
+      out.write("\n");
+      out.write("  <script>\n");
+      out.write("    let localStream;\n");
+      out.write("    let remoteStream;\n");
+      out.write("    let peerConnection;\n");
+      out.write("    const serverConfig = {\n");
+      out.write("      iceServers: [\n");
+      out.write("        {\n");
+      out.write("          urls: \"stun:stun.l.google.com:19302\"\n");
+      out.write("        }\n");
+      out.write("      ]\n");
+      out.write("    };\n");
+      out.write("\n");
+      out.write("    const startCallButton = document.getElementById('startCall');\n");
+      out.write("    const endCallButton = document.getElementById('endCall');\n");
+      out.write("    const localVideo = document.getElementById('localVideo');\n");
+      out.write("    const remoteVideo = document.getElementById('remoteVideo');\n");
+      out.write("\n");
+      out.write("    startCallButton.onclick = startCall;\n");
+      out.write("    endCallButton.onclick = endCall;\n");
+      out.write("\n");
+      out.write("    async function startCall() {\n");
+      out.write("      try {\n");
+      out.write("        localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });\n");
+      out.write("        localVideo.srcObject = localStream;\n");
+      out.write("\n");
+      out.write("        peerConnection = new RTCPeerConnection(serverConfig);\n");
+      out.write("        peerConnection.addEventListener('icecandidate', handleIceCandidate);\n");
+      out.write("        peerConnection.addEventListener('track', handleTrackEvent);\n");
+      out.write("\n");
+      out.write("        localStream.getTracks().forEach(track => {\n");
+      out.write("          peerConnection.addTrack(track, localStream);\n");
+      out.write("        });\n");
+      out.write("\n");
+      out.write("        const offer = await peerConnection.createOffer();\n");
+      out.write("        await peerConnection.setLocalDescription(offer);\n");
+      out.write("\n");
+      out.write("        sendOfferToRemotePeer(offer);\n");
+      out.write("      } catch (err) {\n");
+      out.write("        console.error(\"Error accessing media devices.\", err);\n");
+      out.write("      }\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    async function handleIceCandidate(event) {\n");
+      out.write("      if (event.candidate) {\n");
+      out.write("        sendIceCandidateToRemotePeer(event.candidate);\n");
+      out.write("      }\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    function handleTrackEvent(event) {\n");
+      out.write("      remoteStream = event.streams[0];\n");
+      out.write("      remoteVideo.srcObject = remoteStream;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    function endCall() {\n");
+      out.write("      if (peerConnection) {\n");
+      out.write("        peerConnection.close();\n");
+      out.write("        peerConnection = null;\n");
+      out.write("      }\n");
+      out.write("      if (localStream) {\n");
+      out.write("        localStream.getTracks().forEach(track => track.stop());\n");
+      out.write("        localStream = null;\n");
+      out.write("      }\n");
+      out.write("      remoteVideo.srcObject = null;\n");
+      out.write("\n");
+      out.write("     \n");
+      out.write("      window.location.href = \"web.jsp\";\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    function sendOfferToRemotePeer(offer) {\n");
+      out.write("     \n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    function sendIceCandidateToRemotePeer(candidate) {\n");
+      out.write("      // Implement your signaling server to send the ICE candidate\n");
+      out.write("    }\n");
+      out.write("  </script>\n");
+      out.write("</body>\n");
+      out.write("</html>");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}

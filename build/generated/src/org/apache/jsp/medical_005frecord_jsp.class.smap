@@ -1,0 +1,20 @@
+SMAP
+medical_005frecord_jsp.java
+JSP
+*S JSP
+*F
++ 0 medical_record.jsp
+medical_record.jsp
+*L
+1,2:46
+4,28:49
+31,106:77
+137,33:184
+169,2:217
+171,3:219,3
+174,2:228
+176:230,3
+177,5:233
+182,9:239
+190,10:248
+*E
